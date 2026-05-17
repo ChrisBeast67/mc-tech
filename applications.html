@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MC Tech — Applications of Compressed Air Systems</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #0B1929;
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    /* COVER PAGE */
+    .cover {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0B1929 0%, #1E3A5F 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 4rem;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 30% 50%, rgba(0, 194, 255, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 30%, rgba(30, 58, 95, 0.8) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .cover-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0, 194, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 194, 255, 0.06) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+
+    .cover-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 800px;
+    }
+
+    .cover-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .cover-logo-icon {
+      width: 60px;
+      height: 60px;
+      background: #00C2FF;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cover-logo-icon svg {
+      width: 36px;
+      height: 36px;
+      stroke: #0B1929;
+    }
+
+    .cover-logo-text {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .cover h1 {
+      font-size: 3.5rem;
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+
+    .cover h1 span {
+      color: #00C2FF;
+    }
+
+    .cover p {
+      font-size: 1.3rem;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 3rem;
+    }
+
+    .cover-subtitle {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    /* PAGE BREAK */
+    .page-break {
+      page-break-after: always;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 4rem 3rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #00C2FF;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      color: #0B1929;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      font-size: 1.1rem;
+      color: #5a6a7a;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* INDUSTRY CARDS */
+    .industry-section {
+      background: #F5F7FA;
+    }
+
+    .industry-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .industry-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(11, 25, 41, 0.08);
+      transition: all 0.3s;
+    }
+
+    .industry-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(11, 25, 41, 0.15);
+    }
+
+    .industry-icon-wrap {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .industry-icon-wrap svg {
+      width: 80px;
+      height: 80px;
+      stroke: #fff;
+      stroke-width: 1.5;
+    }
+
+    .industry-content {
+      padding: 2rem;
+    }
+
+    .industry-content h3 {
+      font-size: 1.5rem;
+      color: #0B1929;
+      margin-bottom: 0.5rem;
+    }
+
+    .industry-desc {
+      color: #5a6a7a;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    .industry-uses {
+      list-style: none;
+    }
+
+    .industry-uses li {
+      font-size: 0.85rem;
+      color: #0B1929;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .industry-uses li::before {
+      content: '✓';
+      color: #00C2FF;
+      font-weight: bold;
+    }
+
+    /* FULL WIDTH SECTIONS */
+    .full-section {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .full-section-image {
+      flex: 1;
+      min-height: 400px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .full-section-content {
+      flex: 1;
+      padding: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .full-section h3 {
+      font-size: 2rem;
+      color: #0B1929;
+      margin-bottom: 1rem;
+    }
+
+    .full-section p {
+      color: #5a6a7a;
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .benefit-list {
+      list-style: none;
+    }
+
+    .benefit-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.6rem 0;
+      font-size: 0.95rem;
+      color: #0B1929;
+    }
+
+    .benefit-icon {
+      width: 28px;
+      height: 28px;
+      background: #00C2FF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .benefit-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke: #0B1929;
+    }
+
+    /* WHY COMPRESSED AIR */
+    .why-section {
+      background: #0B1929;
+      color: #fff;
+    }
+
+    .why-section .section-label {
+      color: #00C2FF;
+    }
+
+    .why-section .section-title {
+      color: #fff;
+    }
+
+    .why-section .section-sub {
+      color: rgba(255,255,255,0.6);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .why-item {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(30, 58, 95, 0.4);
+      border: 1px solid rgba(0, 194, 255, 0.15);
+      border-radius: 16px;
+    }
+
+    .why-item:hover {
+      border-color: #00C2FF;
+    }
+
+    .why-icon {
+      width: 70px;
+      height: 70px;
+      background: rgba(0, 194, 255, 0.1);
+      border: 2px solid #00C2FF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+
+    .why-icon svg {
+      width: 32px;
+      height: 32px;
+      stroke: #00C2FF;
+    }
+
+    .why-item h4 {
+      font-size: 1.3rem;
+      color: #fff;
+      margin-bottom: 0.8rem;
+    }
+
+    .why-item p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: linear-gradient(135deg, #1E3A5F, #0B1929);
+      text-align: center;
+      padding: 5rem 3rem;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section h2 span {
+      color: #00C2FF;
+    }
+
+    .cta-section p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta-phone {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #00C2FF;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .cta-phone svg {
+      width: 40px;
+      height: 40px;
+      stroke: #00C2FF;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0B1929;
+      padding: 2rem 3rem;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-logo {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    footer p {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.85rem;
+    }
+
+    /* PAGE BREAK HELPER */
+    .page-break {
+      height: 1px;
+      page-break-after: always;
+    }
+
+    /* PRINT STYLES */
+    @media print {
+      .cover {
+        min-height: 100vh;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .industry-card {
+        break-inside: avoid;
+      }
+
+      .full-section {
+        break-inside: avoid;
+      }
+
+      .page-break {
+        page-break-after: always;
+      }
+    }
+
+    @page {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- COVER PAGE -->
+  <div class="cover">
+    <div class="cover-pattern"></div>
+    <div class="cover-content">
+      <div class="cover-logo">
+        <div class="cover-logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span class="cover-logo-text">MC Tech</span>
+      </div>
+      <p class="cover-subtitle">Industrial Compressed Air Solutions</p>
+      <h1>Powering <span>Industries</span> Worldwide</h1>
+      <p>Discover how compressed air systems drive productivity, safety, and efficiency across manufacturing, healthcare, food processing, and beyond.</p>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- WHY COMPRESSED AIR SECTION -->
+  <section class="why-section">
+    <div class="section-header">
+      <p class="section-label">Why Compressed Air?</p>
+      <h2 class="section-title">The Engine of Modern Industry</h2>
+      <p class="section-sub">Compressed air is one of the most versatile and reliable power sources available. Here's why thousands of facilities depend on it every day.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h4>High Efficiency</h4>
+        <p>Converts electrical energy into kinetic power with minimal loss. Motors run cooler, systems run longer.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M9 9l6 6M15 9l-6 6"/></svg>
+        </div>
+        <h4>100% Oil-Free Options</h4>
+        <p>Oil-free compressors eliminate contamination risks for sensitive medical, food, and pharmaceutical applications.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg>
+        </div>
+        <h4>Safe & Reliable</h4>
+        <p>No sparks, no flames, no combustion. Pneumatic tools work safely in hazardous environments.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+        </div>
+        <h4>Scalable Systems</h4>
+        <p>From a single workstation to an entire factory floor — systems grow with your production needs.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-break"></div>
+
+  <!-- MANUFACTURING & INDUSTRIAL -->
+  <div class="full-section">
+    <div class="full-section-content">
+      <p class="section-label">Manufacturing</p>
+      <h3>Industrial & Manufacturing</h3>
+      <p>The backbone of compressed air usage. Factories across every sector rely on pneumatic systems for assembly lines, automation, robotics, and tool operation. From automotive plants to textile mills, compressed air drives the machinery that builds everything you see.</p>
+      <ul class="benefit-list">
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> CNC machine automation</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Robotic assembly arms</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Pneumatic drills & grinders</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Conveyor belt systems</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Paint sprayers & coating</li>
+      </ul>
+    </div>
+    <div class="full-section-image" style="background: linear-gradient(135deg, #1E3A5F, #0B1929); display: flex; align-items: center; justify-content: center;">
+      <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="rgba(0,194,255,0.3)" stroke-width="0.8">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+        <circle cx="12" cy="12" r="10"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- MEDICAL -->
+  <div class="full-section" style="flex-direction: row-reverse;">
+    <div class="full-section-content">
+      <p class="section-label">Healthcare</p>
+      <h3>Medical & Healthcare</h3>
+      <p>When purity matters most. Hospitals depend on oil-free compressed air for ventilators, dental equipment, surgical tools, and patient monitoring systems. Our oil-free systems meet the strictest hygiene standards required in critical care environments.</p>
+      <ul class="benefit-list">
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Hospital ventilators</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Dental drill systems</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Surgical air tools</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> MRI machine cooling</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Patient monitoring systems</li>
+      </ul>
+    </div>
+    <div class="full-section-image" style="background: linear-gradient(135deg, #0B1929, #1E3A5F); display: flex; align-items: center; justify-content: center;">
+      <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="rgba(0,194,255,0.3)" stroke-width="0.8">
+        <path d="M22 12h-4l-3 9L15 12l-3-9H2"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- FOOD & BEVERAGE -->
+  <div class="full-section">
+    <div class="full-section-content">
+      <p class="section-label">Food Industry</p>
+      <h3>Food & Beverage Processing</h3>
+      <p>Zero contamination. Our oil-free compressors are essential for food-grade air in beverage bottling, dairy processing, meat packaging, and snack manufacturing. Clean air prevents spoilage and ensures food safety compliance.</p>
+      <ul class="benefit-list">
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Bottle filling lines</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Pneumatic conveyors</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Packaging machines</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Conveyors & sorters</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Aeration systems</li>
+      </ul>
+    </div>
+    <div class="full-section-image" style="background: linear-gradient(135deg, #1E3A5F, #0B1929); display: flex; align-items: center; justify-content: center;">
+      <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="rgba(0,194,255,0.3)" stroke-width="0.8">
+        <path d="M18 8h1a4 4 0 010 8h-1"/>
+        <path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/>
+        <line x1="6" y1="1" x2="6" y2="4"/>
+        <line x1="10" y1="1" x2="10" y2="4"/>
+        <line x1="14" y1="1" x2="14" y2="4"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ELECTRONICS -->
+  <div class="full-section" style="flex-direction: row-reverse;">
+    <div class="full-section-content">
+      <p class="section-label">Technology</p>
+      <h3>Electronics & Semiconductors</h3>
+      <p>Precision air for precision work. Semiconductor fabrication requires ultra-clean, dry air for cleanroom environments, component manufacturing, and PCB production. Our adsorption dryers deliver the -40°C dew points essential for microchip production.</p>
+      <ul class="benefit-list">
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Cleanroom pressurization</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> PCB manufacturing</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Component mounting</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Soldering systems</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Display manufacturing</li>
+      </ul>
+    </div>
+    <div class="full-section-image" style="background: linear-gradient(135deg, #0B1929, #1E3A5F); display: flex; align-items: center; justify-content: center;">
+      <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="rgba(0,194,255,0.3)" stroke-width="0.8">
+        <rect x="4" y="4" width="16" height="16" rx="2"/>
+        <rect x="9" y="9" width="6" height="6"/>
+        <line x1="9" y1="1" x2="9" y2="4"/>
+        <line x1="15" y1="1" x2="15" y2="4"/>
+        <line x1="9" y1="20" x2="9" y2="23"/>
+        <line x1="15" y1="20" x2="15" y2="23"/>
+        <line x1="20" y1="9" x2="23" y2="9"/>
+        <line x1="20" y1="14" x2="23" y2="14"/>
+        <line x1="1" y1="9" x2="4" y2="9"/>
+        <line x1="1" y1="14" x2="4" y2="14"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- POWER & ENERGY -->
+  <div class="full-section">
+    <div class="full-section-content">
+      <p class="section-label">Energy</p>
+      <h3>Power Plants & Energy</h3>
+      <p>Reliable air for power generation. Compressed air drives turbine controls, valve actuators, and instrumentation in power plants from natural gas to renewable energy facilities. Our systems ensure continuous operation even in the most demanding environments.</p>
+      <ul class="benefit-list">
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Turbine control systems</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Pneumatic valve actuators</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Instrument air</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Cooling tower systems</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Generator maintenance</li>
+      </ul>
+    </div>
+    <div class="full-section-image" style="background: linear-gradient(135deg, #1E3A5F, #0B1929); display: flex; align-items: center; justify-content: center;">
+      <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="rgba(0,194,255,0.3)" stroke-width="0.8">
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- AGRICULTURE -->
+  <div class="full-section" style="flex-direction: row-reverse;">
+    <div class="full-section-content">
+      <p class="section-label">Agriculture</p>
+      <h3>Agricultural Systems</h3>
+      <p>From grain processing to livestock facilities. Compressed air powers irrigation systems, grain drying equipment, milking machines, and feed processing. Our reliable systems work in dusty, humid agricultural environments year after year.</p>
+      <ul class="benefit-list">
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Irrigation automation</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Milking machine systems</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Grain drying controls</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Feed processing</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Greenhouse systems</li>
+      </ul>
+    </div>
+    <div class="full-section-image" style="background: linear-gradient(135deg, #0B1929, #1E3A5F); display: flex; align-items: center; justify-content: center;">
+      <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="rgba(0,194,255,0.3)" stroke-width="0.8">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- PHARMACEUTICAL -->
+  <div class="full-section">
+    <div class="full-section-content">
+      <p class="section-label">Pharmaceutical</p>
+      <h3>Pharmaceutical Manufacturing</h3>
+      <p>When purity is not optional. Drug manufacturing requires compressed air that meets pharmacopeia standards. Our oil-free systems with adsorption drying ensure zero microbial contamination for pill production, sterile manufacturing, and lab equipment.</p>
+      <ul class="benefit-list">
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Sterile manufacturing</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Tablet press machines</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Capsule filling</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Laboratory air</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Aseptic packaging</li>
+      </ul>
+    </div>
+    <div class="full-section-image" style="background: linear-gradient(135deg, #1E3A5F, #0B1929); display: flex; align-items: center; justify-content: center;">
+      <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="rgba(0,194,255,0.3)" stroke-width="0.8">
+        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0016.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 002 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- PETROCHEMICAL -->
+  <div class="full-section" style="flex-direction: row-reverse;">
+    <div class="full-section-content">
+      <p class="section-label">Chemical</p>
+      <h3>Petrochemical & Chemical</h3>
+      <p>Hazardous environment ready. Our systems are built for the explosive atmospheres of oil refineries, chemical plants, and gas processing facilities. Explosion-proof compressors and corrosion-resistant piping handle the toughest chemical processing demands.</p>
+      <ul class="benefit-list">
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Refinery instrumentation</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Chemical processing</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Pipeline maintenance</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Tank cleaning systems</li>
+        <li><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Offshore platforms</li>
+      </ul>
+    </div>
+    <div class="full-section-image" style="background: linear-gradient(135deg, #0B1929, #1E3A5F); display: flex; align-items: center; justify-content: center;">
+      <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="rgba(0,194,255,0.3)" stroke-width="0.8">
+        <path d="M2 20h.01"/>
+        <path d="M7 20v-4"/>
+        <path d="M12 20v-8"/>
+        <path d="M17 20V8"/>
+        <path d="M22 4v16"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <h2>Ready to Power Your <span>Facility</span>?</h2>
+    <p>MC Tech supplies complete compressed air systems for every industry.<br>Contact us today for system design, pricing, and delivery estimates.</p>
+    <a href="tel:+861860733479" class="cta-phone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.18a16 16 0 006.41 6.41l1.41-1.41a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+      </svg>
+      +86 186 0733 4795
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-logo">MC Tech</p>
+    <p>Industrial Compressed Air Systems · Quality You Can Trust</p>
+    <p style="margin-top: 1rem;">© 2026 MC Tech. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
