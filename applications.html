@@ -64,6 +64,38 @@
       max-width: 800px;
     }
 
+    .back-btn {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      background: rgba(0, 194, 255, 0.15);
+      border: 2px solid rgba(0, 194, 255, 0.5);
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.25s;
+      z-index: 2;
+    }
+
+    .back-btn:hover {
+      background: rgba(0, 194, 255, 0.3);
+      border-color: #00C2FF;
+      transform: translateX(-4px);
+    }
+
+    .back-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: #00C2FF;
+    }
+
     .cover-logo {
       display: inline-flex;
       align-items: center;
@@ -463,6 +495,10 @@
   <!-- COVER PAGE -->
   <div class="cover">
     <div class="cover-pattern"></div>
+    <a href="index.html" class="back-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Home
+    </a>
     <div class="cover-content">
       <div class="cover-logo">
         <div class="cover-logo-icon">
@@ -731,6 +767,11 @@
   <section class="cta-section">
     <h2>Ready to Power Your <span>Facility</span>?</h2>
     <p>MC Tech supplies complete compressed air systems for every industry.<br>Contact us today for system design, pricing, and delivery estimates.</p>
+    <a href="index.html" class="btn-primary" style="margin-bottom: 1.5rem; display: inline-flex;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+      Back to Main Site
+    </a>
+    <br>
     <a href="tel:+861860733479" class="cta-phone">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.18a16 16 0 006.41 6.41l1.41-1.41a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
